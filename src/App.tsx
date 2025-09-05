@@ -17,12 +17,6 @@ function App() {
   const [produtos, setProdutos] = useState<Produto[]>([])
   const [favoritos, setFavoritos] = useState<Produto[]>([])
 
-  useEffect(() => {
-    fetch('https://ebac-fake-api.vercel.app/api/ebac_sports')
-      .then((res) => res.json())
-      .then((res) => setProdutos(res))
-  }, [])
-
   function favoritar(produto: Produto) {
     if (favoritos.find((p) => p.id === produto.id)) {
       const favoritosSemProduto = favoritos.filter((p) => p.id !== produto.id)
